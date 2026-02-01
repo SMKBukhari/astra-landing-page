@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Manrope, Outfit } from "next/font/google";
 import "./globals.css";
+import ClientLoader from "@/components/global/Loader/ClientLoader";
+import SmoothScrolling from "@/components/global/SmoothScrolling";
+import { LoaderProvider } from "@/context/LoaderContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
 });
 
@@ -23,11 +26,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang='en'>
+      <body className={`${outfit.variable} ${manrope.variable} antialiased`}>
+        <LoaderProvider>
+          <ClientLoader />
+          <SmoothScrolling>{children}</SmoothScrolling>
+        </LoaderProvider>
       </body>
     </html>
   );
