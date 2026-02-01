@@ -19,7 +19,8 @@ const HowItWorkContent: React.FC<HowItWorkContentProps> = ({
   onSelect,
 }) => {
   return (
-    <div className='flex w-full gap-10'>
+    // Responsive Layout: flex-col on mobile, flex-row on desktop
+    <div className='flex flex-col md:flex-row w-full gap-8 md:gap-10'>
       {howItWorks.map((howItWork, index) => {
         const isActive = index === currentIndex;
 
@@ -50,7 +51,7 @@ const HowItWorkContent: React.FC<HowItWorkContentProps> = ({
                 className='overflow-hidden'
               >
                 <p
-                  className={`text-sm ${
+                  className={`text-sm md:text-base ${
                     isActive ? "text-black" : "text-text-secondary"
                   } leading-relaxed max-w-sm pr-4`}
                 >
@@ -60,9 +61,7 @@ const HowItWorkContent: React.FC<HowItWorkContentProps> = ({
             </AnimatePresence>
 
             {/* Bottom Line Section */}
-            {/* The Track: Always visible (bg-zinc-400) */}
             <div className='absolute -bottom-0.5 left-0 w-full h-[2px] bg-zinc-400 overflow-hidden'>
-              {/* The Fill: Only animates when active (bg-black) */}
               {isActive && (
                 <motion.div
                   className='h-full bg-black'

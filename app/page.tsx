@@ -14,7 +14,7 @@ import Footer from "@/components/global/LandingPage/Footer";
 
 const AstraLandingPage = () => {
   return (
-    <main className='bg-black min-h-screen text-white font-outfit'>
+    <main className='bg-black min-h-screen text-white font-outfit overflow-x-hidden'>
       {/* Header is fixed, so it sits on top of everything */}
       <Header />
 
@@ -24,7 +24,7 @@ const AstraLandingPage = () => {
         <div className='mt-5'>
           <BrandMarquee />
         </div>
-        <div className='mt-32 mb-24 font-medium font-manrope max-w-5xl mx-auto space-y-40 px-6 md:px-0 text-3xl md:text-5xl'>
+        <div className='md:mt-32 mt-20 md:mb-24 mb-10 font-medium font-manrope md:max-w-5xl max-w-full mx-auto space-y-10 md:space-y-40 px-6 md:px-0 text-2xl md:text-5xl'>
           <div>
             <DynamicTextReveal
               mode='scroll'
@@ -49,17 +49,17 @@ const AstraLandingPage = () => {
       </section>
 
       {/* Features Section */}
-      <section id='features' className='relative z-10 mt-40'>
+      <section id='features' className='relative z-10 md:mt-40 mt-10'>
         <Features />
       </section>
 
       {/* Testimonials Section */}
-      <section id='testimonials' className='relative z-10 mt-40'>
+      <section id='testimonials' className='relative z-10 md:mt-40 mt-10'>
         <Testimonials />
       </section>
 
       {/* Outcomes Section */}
-      <section id='outcomes' className='relative z-10 mt-40'>
+      <section id='outcomes' className='relative z-10 md:mt-40 mt-10'>
         <Outcomes />
       </section>
 

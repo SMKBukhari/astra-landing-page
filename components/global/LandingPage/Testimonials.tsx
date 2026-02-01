@@ -4,7 +4,7 @@ import TestimonialMarquee from "./TestimonialMarquee";
 
 const Testimonials = () => {
   return (
-    <div className='max-w-7xl mx-auto'>
+    <div className='max-w-7xl mx-auto md:p-0 px-4 py-20'>
       <div className='flex justify-between'>
         <div className='flex flex-col gap-5'>
           <HoverBorderGradient
@@ -26,7 +26,7 @@ const Testimonials = () => {
       </div>
 
       {/* Features */}
-      <div className='flex mt-10 w-full'>
+      <div className='flex md:mt-10 mt-5 w-full'>
         <TestimonialMarquee />
       </div>
     </div>

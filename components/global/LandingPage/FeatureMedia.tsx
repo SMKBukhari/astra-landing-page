@@ -11,15 +11,15 @@ interface FeatureMediaProps {
 
 const FeatureMedia: React.FC<FeatureMediaProps> = ({ feature }) => {
   return (
-    <div className='relative h-[400px] md:h-[500px] w-full rounded-xl overflow-hidden bg-white/5 '>
+    // Responsive Height: h-[300px] for mobile, h-[500px] for tablet/desktop
+    <div className='relative h-[300px] md:h-[500px] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10'>
       <AnimatePresence mode='wait'>
         <motion.div
-          // Changing the key triggers the enter/exit animations
           key={feature.id}
           initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} // Smooth cubic-bezier ease
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className='absolute inset-0 h-full w-full'
         >
           {feature.mediaType === "image" ? (
@@ -43,8 +43,8 @@ const FeatureMedia: React.FC<FeatureMediaProps> = ({ feature }) => {
         </motion.div>
       </AnimatePresence>
 
-      {/* Optional: Add a subtle overlay or gradient for better text contrast if needed */}
-      <div className='absolute inset-0 bg-linear-to-t from-black/20 to-transparent pointer-events-none' />
+      {/* Gradient Overlay for depth */}
+      <div className='absolute inset-0 bg-linear-to-t from-black/40 to-transparent pointer-events-none' />
     </div>
   );
 };

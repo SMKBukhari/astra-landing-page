@@ -1,10 +1,13 @@
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { motion } from "framer-motion";
 import FeatureSlider from "./FeatureSlider";
+
 const Features = () => {
   return (
-    <div className='min-h-screen max-w-7xl mx-auto'>
-      <div className='flex justify-between'>
+    <div className='max-w-7xl mx-auto md:p-0 px-4 py-20'>
+      {/* Header Section: Responsive Layout */}
+      <div className='flex flex-col md:flex-row justify-between md:items-end gap-6 md:gap-0'>
+        {/* Badge & Title */}
         <div className='flex flex-col gap-5'>
           <HoverBorderGradient
             containerClassName='rounded-lg'
@@ -18,18 +21,20 @@ const Features = () => {
             />
             <span className='text-xs font-medium'>The New Wealth Standard</span>
           </HoverBorderGradient>
-          <h2 className='text-2xl font-medium font-manrope max-w-xs'>
+          <h2 className='text-2xl md:text-3xl font-medium font-manrope max-w-xs md:max-w-md'>
             How Astra Orchestrates Your Finances, 24/7.
           </h2>
         </div>
-        <p className='text-xs font-medium text-text-secondary max-w-sm self-end'>
+
+        {/* Description: Stacks below on mobile, aligns right on desktop */}
+        <p className='text-xs md:text-sm font-medium text-text-secondary max-w-sm md:self-end'>
           Astra manages your capital the way a private wealth manager
           would—without the fees or the meetings.
         </p>
       </div>
 
-      {/* Features */}
-      <div className='flex mt-10 w-full'>
+      {/* Features Slider */}
+      <div className='flex mt-10 md:mt-20 w-full'>
         <FeatureSlider />
       </div>
     </div>

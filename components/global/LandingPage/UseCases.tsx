@@ -1,12 +1,12 @@
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { motion } from "framer-motion";
-import OutcomeMedia from "./OutcomeMedia";
 import UseCaseMedia from "./UseCaseMedia";
 
 const UseCases = () => {
   return (
-    <div className='max-w-7xl mx-auto'>
-      <div className='flex justify-between'>
+    <div className='max-w-7xl mx-auto md:px-0 px-4 py-20'>
+      {/* Header: Flex Column on Mobile, Row on Desktop */}
+      <div className='flex flex-col md:flex-row justify-between md:items-end gap-6 md:gap-0'>
         <div className='flex flex-col gap-5'>
           <HoverBorderGradient
             containerClassName='rounded-lg'
@@ -20,14 +20,14 @@ const UseCases = () => {
             />
             <span className='text-xs font-medium'>Use Cases</span>
           </HoverBorderGradient>
-          <h2 className='text-2xl font-medium font-manrope max-w-md text-black'>
+          <h2 className='text-2xl md:text-3xl font-medium font-manrope max-w-md text-black'>
             One Brain. Every Financial Season.
           </h2>
         </div>
       </div>
 
-      {/* Features */}
-      <div className='flex mt-10 w-full'>
+      {/* Features Media Container */}
+      <div className='flex mt-10 md:mt-16 w-full'>
         <UseCaseMedia />
       </div>
     </div>

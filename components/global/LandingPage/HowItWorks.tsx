@@ -4,8 +4,8 @@ import HowItWorkSlider from "./HowItWorkSlider";
 
 const HowItWorks = () => {
   return (
-    <div className='min-h-screen max-w-7xl mx-auto'>
-      <div className='flex justify-between'>
+    <div className='min-h-screen max-w-7xl mx-auto md:px-0 px-4 py-20'>
+      <div className='flex flex-col md:flex-row justify-between md:items-end gap-6 md:gap-0'>
         <div className='flex flex-col gap-5'>
           <HoverBorderGradient
             containerClassName='rounded-lg'
@@ -19,14 +19,14 @@ const HowItWorks = () => {
             />
             <span className='text-xs font-medium'>The Setup</span>
           </HoverBorderGradient>
-          <h2 className='text-2xl font-medium font-manrope max-w-md text-black'>
+          <h2 className='text-2xl md:text-3xl font-medium font-manrope max-w-md text-black'>
             Financial Clarity in Minutes, Not Months.
           </h2>
         </div>
       </div>
 
-      {/* Features */}
-      <div className='flex mt-10 w-full gap-5'>
+      {/* Features Slider Wrapper */}
+      <div className='flex mt-10 md:mt-20 w-full gap-5'>
         <HowItWorkSlider />
       </div>
     </div>

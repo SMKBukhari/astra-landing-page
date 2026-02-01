@@ -21,8 +21,10 @@ const FeatureSlider = () => {
   const currentFeature = features[currentIndex];
 
   return (
-    <div className='grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-20 items-center w-full'>
-      <div className='col-span-1'>
+    // Changed Layout: Flex-col-reverse for Mobile (Media Top, Content Bottom), Grid for Desktop
+    <div className='flex flex-col-reverse lg:grid lg:grid-cols-3 gap-8 lg:gap-20 items-start w-full'>
+      {/* Content Section (Bottom on Mobile, Left on Desktop) */}
+      <div className='w-full lg:col-span-1'>
         <FeatureContent
           features={features}
           currentIndex={currentIndex}
@@ -31,8 +33,8 @@ const FeatureSlider = () => {
         />
       </div>
 
-      {/* Right Side - Smooth Media Transition */}
-      <div className='col-span-2'>
+      {/* Media Section (Top on Mobile, Right on Desktop) */}
+      <div className='w-full lg:col-span-2'>
         <FeatureMedia feature={currentFeature} />
       </div>
     </div>

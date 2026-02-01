@@ -11,15 +11,15 @@ interface HowItWorkMediaProps {
 
 const HowItWorkMedia: React.FC<HowItWorkMediaProps> = ({ howItWork }) => {
   return (
-    <div className='relative h-[400px] md:h-[600px] w-full rounded-xl overflow-hidden bg-black/20 '>
+    // Responsive Height: h-[300px] on mobile, h-[600px] on desktop
+    <div className='relative h-[300px] md:h-[600px] w-full rounded-xl overflow-hidden bg-black/5'>
       <AnimatePresence mode='wait'>
         <motion.div
-          // Changing the key triggers the enter/exit animations
           key={howItWork.id}
           initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} // Smooth cubic-bezier ease
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className='absolute inset-0 h-full w-full'
         >
           {howItWork.mediaType === "image" ? (
@@ -43,8 +43,7 @@ const HowItWorkMedia: React.FC<HowItWorkMediaProps> = ({ howItWork }) => {
         </motion.div>
       </AnimatePresence>
 
-      {/* Optional: Add a subtle overlay or gradient for better text contrast if needed */}
-      <div className='absolute inset-0 bg-linear-to-t from-black/20 to-transparent pointer-events-none' />
+      <div className='absolute inset-0 bg-linear-to-t from-black/10 to-transparent pointer-events-none' />
     </div>
   );
 };

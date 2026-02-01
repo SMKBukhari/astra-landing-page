@@ -5,17 +5,11 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { outcomes } from "@/lib/constants";
 
-// 1. Create a sub-component for individual cards
-// This isolates the video logic so one hover doesn't affect other cards
 const OutcomeCard = ({ outcome }: { outcome: any }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
-    setIsHovered(true);
-    // Directly play the video via the DOM API
     if (videoRef.current) {
-      // We catch the promise to prevent errors if the user hovers in/out too fast
       videoRef.current
         .play()
         .catch((error) => console.log("Play interrupted", error));
@@ -23,12 +17,8 @@ const OutcomeCard = ({ outcome }: { outcome: any }) => {
   };
 
   const handleMouseLeave = () => {
-    setIsHovered(false);
-    // Directly pause the video
     if (videoRef.current) {
       videoRef.current.pause();
-      // Optional: Reset video to start when mouse leaves
-      // videoRef.current.currentTime = 0;
     }
   };
 
@@ -58,13 +48,12 @@ const OutcomeCard = ({ outcome }: { outcome: any }) => {
               />
             ) : (
               <video
-                ref={videoRef} // Attach the ref here
+                ref={videoRef}
                 src={outcome.mediaSrc}
                 loop
-                muted // Muted is required for autoplay to work in most browsers
+                muted
                 playsInline
                 className='h-full w-full object-cover'
-                // Remove autoPlay attribute; we control it manually now
               />
             )}
           </motion.div>
@@ -72,11 +61,11 @@ const OutcomeCard = ({ outcome }: { outcome: any }) => {
 
         <div className='absolute inset-0 bg-linear-to-t from-black/20 to-transparent pointer-events-none' />
       </div>
-      <div className='flex flex-col gap-5'>
-        <h2 className='text-xl font-medium font-manrope max-w-md'>
+      <div className='flex flex-col gap-3 md:gap-5'>
+        <h2 className='text-lg md:text-xl font-medium font-manrope max-w-md'>
           {outcome.title}
         </h2>
-        <p className='text-xs font-medium text-text-secondary max-w-sm'>
+        <p className='text-xs md:text-sm font-medium text-text-secondary max-w-sm leading-relaxed'>
           {outcome.description}
         </p>
       </div>
@@ -84,10 +73,11 @@ const OutcomeCard = ({ outcome }: { outcome: any }) => {
   );
 };
 
-// 2. Main Component just maps the data
+// Responsive Layout Change Here
 const OutcomeMedia = () => {
   return (
-    <div className='flex w-full gap-5'>
+    // Mobile: flex-col (stacked) | Desktop: flex-row (side-by-side)
+    <div className='flex flex-col md:flex-row w-full gap-10 md:gap-5'>
       {outcomes.map((outcome) => (
         <OutcomeCard key={outcome.id} outcome={outcome} />
       ))}
