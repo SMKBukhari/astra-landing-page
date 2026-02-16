@@ -63,8 +63,8 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
             className='text-lg md:text-xl text-gray-300 max-w-2xl'
           >
-            Astra's intelligent AI analyzes your spending, builds personalized
-            budgets, and automates your savings—24/7.
+            Astra&apos;s intelligent AI analyzes your spending, builds
+            personalized budgets, and automates your savings—24/7.
           </motion.p>
 
           <motion.div
